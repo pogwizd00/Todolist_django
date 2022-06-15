@@ -1,0 +1,10 @@
+{%extends 'events/base.html'%}
+
+{%block content%}
+<div>
+    <h1>Lista produktow:</h1>
+    {%for list in user_list %}
+    <li><a href="{% url 'show-list' list.id % }">{{list}}</a></li>
+    {%endfor%}
+</div>
+{%endblock%}

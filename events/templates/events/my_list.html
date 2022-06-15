@@ -1,0 +1,9 @@
+{%extends 'events/base.html'%}
+
+
+{%block content%}
+<h2>My list</h2>
+{%for i in lista%}
+{{i.list_name}}
+{%endfor%}
+{%endblock%}

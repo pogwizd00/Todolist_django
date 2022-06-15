@@ -1,0 +1,14 @@
+{%extends 'events/base.html'%}
+
+{%block content%}
+{%if user.is_authenticated%}
+<h1>Witam Cię uprzejmie</h1>
+<div class="tekst">
+    <p>Skoro juz tu jestes</p>
+    <p>To Wez sobie tu ładnie zorganizuj tydzien !!</p>
+</div>
+{%else%}
+<h1>Musisz byc zalogowany</h1>
+<p>Zaloguj sie <a href="{% url 'login'%}">tutaj</a></p>
+{%endif%}
+{%endblock%}

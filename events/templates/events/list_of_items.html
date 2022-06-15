@@ -1,0 +1,19 @@
+{%extends 'events/base.html'%}
+
+{%block content%}
+{%if user.is_authenticated%}
+<div>
+
+    <h1>Lista wszystkich rzeczy do zrobienia: </h1>
+    {%for item in itemsList%}
+
+    <li>{{item}}</li>
+    {{item_owner}} - {{user.id}}
+    {%endfor%}
+
+</div>
+{%else%}
+<h1>Musisz byc zalogowany</h1>
+<p>Zaloguj sie <a href="{% url 'login'%}">tutaj</a></p>
+{%endif%}
+{%endblock%}

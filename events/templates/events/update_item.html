@@ -1,0 +1,14 @@
+{%extends 'events/base.html'%}
+
+{%block content%}
+<center>
+    <h2>Modyfikacja czynności: </h2>
+    <form action="" , method="POST">
+        {%csrf_token%}
+        {{form.as_p}}
+        <br>
+        <input type="submit" value="Modyfikuj" class="btn btn-secondary">
+    </form>
+
+</center>
+{%endblock%}

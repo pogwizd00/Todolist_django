@@ -1,0 +1,33 @@
+{%extends 'events/base.html'%}
+
+{%block content%}
+{%if user.is_authenticated%}
+
+<div>
+    <h1>Listy:</h1>
+
+    {%for list in userList %}
+    <div class="kontener">
+        {%if user.id == list.owner %}
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+
+                <a class="btn btn-secondary" href="{% url 'delete-list' list.id %}">Usuń</a>
+            </div>
+            <label class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1"><a
+                    href="{% url 'show-items' list.id %}">{{list}}</a></label>
+
+
+        </div>
+        {%else%}
+
+        {%endif%}
+    </div>
+    {%endfor%}
+
+</div>
+{%else%}
+<h1>Musisz byc zalogowany</h1>
+<p>Zaloguj sie <a href="{% url 'login'%}">tutaj</a></p>
+{%endif%}
+{%endblock%}

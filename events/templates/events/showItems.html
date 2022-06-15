@@ -1,0 +1,31 @@
+{%extends 'events/base.html'%}
+
+{%block content%}
+<center>
+    <h2>{{listName.list_name}}:</h2>
+    {%if not lista%}
+    <strong style="padding: 20px; display: block;">Brak rzeczy do zrobienia</strong>
+    <br>
+    <a class="btn btn-secondary" style="text-align: center; " href="{% url 'add-item'%}"> Dodaj
+        czynność</a>
+    <br>
+    {%else%}
+    {%for item in lista%}
+
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+
+            <a class="btn btn-secondary" href="{% url 'update_item' item.id %}">Modytikuj</a>
+            <a class="btn btn-secondary" style="background-color: red;" href="{% url 'delete_item' item.id %}">Usuń</a>
+        </div>
+        <label style="margin-right:120px;" class="form-control" placeholder="" aria-label=""
+            aria-describedby="basic-addon1">{{item}}</label>
+    </div>
+    {%endfor%}
+    <a class="btn btn-secondary" style="text-align: center; margin-left: 20px;" href="{% url 'add-item'%}"> Dodaj
+        czynność</a>
+    <br>
+
+    {%endif%}
+</center>
+{%endblock%}
